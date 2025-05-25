@@ -4,7 +4,6 @@
  */
 package Inicio;
 
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,10 +15,10 @@ public class Grafico extends javax.swing.JFrame {
      * Creates new form Grafico
      */
     public Grafico() {
-        initComponents();
-        String ruta = "src/Inicio/colegio.png";
-ImageIcon imagenOpaca = imagen.hacerImagenOpaca(ruta, 0.5f);
-jLabel1.setIcon(imagenOpaca);
+      
+       initComponents();
+       
+
     }
 
     /**
@@ -31,67 +30,99 @@ jLabel1.setIcon(imagenOpaca);
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnIniciar = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
+        lblDNI = new javax.swing.JLabel();
+        lblContraseña = new javax.swing.JLabel();
+        txtDNI = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JPasswordField();
+        btnRegistrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setText("Iniciar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 90, 30));
+        btnIniciar.setBackground(new java.awt.Color(255, 153, 153));
+        btnIniciar.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnIniciar.setText("INICIAR");
+        getContentPane().add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 170, 50));
 
-        jLabel2.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jLabel2.setText("COLEGIO PEREZ DE CUELLAR ");
-        jLabel2.setToolTipText("");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 340, 30));
+        lblTitulo.setBackground(new java.awt.Color(204, 204, 255));
+        lblTitulo.setFont(new java.awt.Font("Calibri", 1, 40)); // NOI18N
+        lblTitulo.setText("COLEGIO PEREZ DE CUELLAR ");
+        lblTitulo.setToolTipText("");
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 590, 530, 50));
 
-        jLabel3.setBackground(new java.awt.Color(204, 255, 204));
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 2, 18)); // NOI18N
-        jLabel3.setText("DNI:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 50, -1));
+        lblDNI.setBackground(new java.awt.Color(204, 255, 204));
+        lblDNI.setFont(new java.awt.Font("Malgun Gothic Semilight", 1, 20)); // NOI18N
+        lblDNI.setText("DNI:");
+        getContentPane().add(lblDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 50, -1));
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 2, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("CONTRASEÑA:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 120, -1));
+        lblContraseña.setBackground(new java.awt.Color(204, 204, 204));
+        lblContraseña.setFont(new java.awt.Font("Malgun Gothic Semilight", 1, 20)); // NOI18N
+        lblContraseña.setForeground(new java.awt.Color(51, 51, 51));
+        lblContraseña.setText("CONTRASEÑA:");
+        getContentPane().add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 140, -1));
 
-        jTextField1.setBackground(new java.awt.Color(255, 204, 204));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtDNI.setBackground(new java.awt.Color(204, 204, 204));
+        txtDNI.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtDNI.setToolTipText("");
+        txtDNI.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtDNIActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 250, -1));
+        getContentPane().add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 560, 30));
 
-        jPasswordField1.setBackground(new java.awt.Color(255, 204, 204));
-        jPasswordField1.setText("jPasswordField1");
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 250, -1));
+        txtContraseña.setBackground(new java.awt.Color(204, 204, 204));
+        txtContraseña.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtContraseña.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraseñaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 560, 30));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setText("Registrar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, 30));
+        btnRegistrar.setBackground(new java.awt.Color(255, 153, 153));
+        btnRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnRegistrar.setText("REGISTRAR");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, -1, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inicio/colegio.png"))); // NOI18N
-        jLabel1.setText("DNI");
-        jLabel1.setOpaque(true);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-250, 40, 820, 670));
+        jLabel2.setFont(new java.awt.Font("Calibri", 1, 38)); // NOI18N
+        jLabel2.setText("INICIAR SESIÓN");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 300, 50));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inicio/colegio (2).png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 240, 160));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inicio/pink-city-axrrwccug0bw0o72 (1).png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, -10, 450, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtDNIActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+    
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,13 +160,17 @@ jLabel1.setIcon(imagenOpaca);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnIniciar;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblContraseña;
+    private javax.swing.JLabel lblDNI;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txtDNI;
     // End of variables declaration//GEN-END:variables
+ 
+
 }
