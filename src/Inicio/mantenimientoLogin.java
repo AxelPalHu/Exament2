@@ -8,6 +8,21 @@ package Inicio;
  *
  * @author Axel
  */
-public class mantenimientoLogin {
+import java.util.ArrayList;
+public class MantenimientoLogin {
+     private ArrayList<Usuario> listaUsuarios;
+
+    public MantenimientoLogin(ArrayList<Usuario> usuarios) {
+        this.listaUsuarios = usuarios;
+    }
+
+    public Usuario validarLogin(String dni, String contraseña) {
+        for (Usuario u : listaUsuarios) {
+            if (u.getDni().equals(dni) && u.getContraseña().equals(contraseña)) {
+                return u;
+            }
+        }
+        return null;
+    }
     
 }

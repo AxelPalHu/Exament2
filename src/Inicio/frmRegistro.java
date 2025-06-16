@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Inicio;
-
+import conexionsql.CConexion;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Axel
@@ -30,10 +31,10 @@ public class frmRegistro extends javax.swing.JInternalFrame {
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         txtDNI = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
-        cbTipoUsuario = new javax.swing.JComboBox<>();
-        btnRegistrarUsuario = new javax.swing.JButton();
+        cbtipoUsuario = new javax.swing.JComboBox<>();
+        btnregistrarUsuario = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtPass = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(153, 153, 153));
         setClosable(true);
@@ -52,21 +53,26 @@ public class frmRegistro extends javax.swing.JInternalFrame {
 
         txtDNI.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DNI:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 0, 12))); // NOI18N
 
-        txtPassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PASSWORD:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 0, 12))); // NOI18N
-
-        cbTipoUsuario.setBackground(new java.awt.Color(242, 242, 242));
-        cbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Directora", " " }));
-        cbTipoUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TIPO DE USUARIO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 0, 12))); // NOI18N
-        cbTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
+        cbtipoUsuario.setBackground(new java.awt.Color(242, 242, 242));
+        cbtipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Directora", " " }));
+        cbtipoUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TIPO DE USUARIO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 0, 12))); // NOI18N
+        cbtipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbTipoUsuarioActionPerformed(evt);
+                cbtipoUsuarioActionPerformed(evt);
             }
         });
 
-        btnRegistrarUsuario.setBackground(new java.awt.Color(255, 204, 204));
-        btnRegistrarUsuario.setText("Registrar usuario");
+        btnregistrarUsuario.setBackground(new java.awt.Color(255, 204, 204));
+        btnregistrarUsuario.setText("Registrar usuario");
+        btnregistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistrarUsuarioActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inicio/72648.png"))); // NOI18N
+
+        txtPass.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PASSWORD", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 0, 12))); // NOI18N
 
         javax.swing.GroupLayout jpaneRegistrodeusuarioLayout = new javax.swing.GroupLayout(jpaneRegistrodeusuario);
         jpaneRegistrodeusuario.setLayout(jpaneRegistrodeusuarioLayout);
@@ -75,40 +81,44 @@ public class frmRegistro extends javax.swing.JInternalFrame {
             .addGroup(jpaneRegistrodeusuarioLayout.createSequentialGroup()
                 .addGroup(jpaneRegistrodeusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpaneRegistrodeusuarioLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(jpaneRegistrodeusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jpaneRegistrodeusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtDNI)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtApellido, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jpaneRegistrodeusuarioLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(btnRegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(101, 101, 101)
+                        .addGroup(jpaneRegistrodeusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpaneRegistrodeusuarioLayout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(cbtipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpaneRegistrodeusuarioLayout.createSequentialGroup()
+                                .addGap(67, 67, 67)
+                                .addComponent(btnregistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpaneRegistrodeusuarioLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jpaneRegistrodeusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                            .addComponent(txtDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                            .addComponent(txtApellido)
+                            .addComponent(txtNombre))
+                        .addGap(22, 22, 22)))
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(107, 107, 107))
         );
         jpaneRegistrodeusuarioLayout.setVerticalGroup(
             jpaneRegistrodeusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpaneRegistrodeusuarioLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(cbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(btnRegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jpaneRegistrodeusuarioLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jpaneRegistrodeusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpaneRegistrodeusuarioLayout.createSequentialGroup()
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbtipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnregistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,19 +141,49 @@ public class frmRegistro extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoUsuarioActionPerformed
+    private void cbtipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtipoUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbTipoUsuarioActionPerformed
+    }//GEN-LAST:event_cbtipoUsuarioActionPerformed
+
+    private void btnregistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarUsuarioActionPerformed
+         String Nombre = txtNombre.getText();
+    String Apellido = txtApellido.getText();
+    String Contrasena = new String(txtPass.getPassword());
+    String dni = txtDNI.getText();
+    String tipoUsuario = cbtipoUsuario.getSelectedItem().toString();
+
+    if (Nombre.isEmpty() || Apellido.isEmpty() || Contrasena.isEmpty() || dni.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor, completa todos los campos.");
+        return;
+    }
+
+    if (!dni.matches("\\d{8}")) {
+        JOptionPane.showMessageDialog(this, "El DNI debe tener exactamente 8 dígitos numéricos.");
+        return;
+    }
+
+    CConexion objConexion = new CConexion();
+    objConexion.RegistroUsuario(Nombre, Apellido, Contrasena, dni, tipoUsuario);
+
+    txtNombre.setText("");
+    txtApellido.setText("");
+    txtPass.setText("");
+    txtDNI.setText("");
+    cbtipoUsuario.setSelectedIndex(0);
+
+    System.exit(0);
+
+    }//GEN-LAST:event_btnregistrarUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegistrarUsuario;
-    private javax.swing.JComboBox<String> cbTipoUsuario;
+    private javax.swing.JButton btnregistrarUsuario;
+    private javax.swing.JComboBox<String> cbtipoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jpaneRegistrodeusuario;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPass;
     // End of variables declaration//GEN-END:variables
 }

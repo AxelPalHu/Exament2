@@ -2,29 +2,57 @@
 package Inicio;
 
 public class Usuario {
-private int DNI;
-private double Contraseña;
+    private String dni;
+    private String contraseña;
+    private String nombre;
+    private String apellido;
+    private String tipoUsuario;
 
-    public Usuario(int DNI, double Contraseña) {
-        this.DNI = DNI;
-        this.Contraseña = Contraseña;
+    public Usuario(String dni, String contraseña, String nombre, String apellido, String tipoUsuario) {
+        this.dni = dni;
+        this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.tipoUsuario = tipoUsuario;
     }
 
-    public int getDNI() {
-        return DNI;
+    public String getDni() {
+        return dni;
     }
 
-    public void setDNI(int DNI) {
-        this.DNI = DNI;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
-    public double getContraseña() {
-        return Contraseña;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setContraseña(double Contraseña) {
-        this.Contraseña = Contraseña;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
-   
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
 }
